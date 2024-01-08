@@ -1,13 +1,12 @@
 def next_smaller(num):
     arr = list(map(int, str(num)))
 
-    print(num)
-
     combinations = []
 
     def heapPermutation(a, size):
         if size == 1:
-            combinations.append("".join(map(str, a)))
+            print(a)
+            combinations.append(int("".join(map(str, a))))
     
         for i in range(size):
             heapPermutation(a, size-1)
@@ -19,19 +18,14 @@ def next_smaller(num):
 
     heapPermutation(arr, len(arr))
 
-    print(combinations)
-
-    ans = list(map(int, combinations))
-    ans.sort(reverse=True)
-    ans.remove(num)
-
     def isSmaller(a):
         if a < num:
             return True
         else:
             return False
         
-    ans = list(filter(isSmaller, ans))
+    ans = list(filter(isSmaller, combinations))
+    ans.sort(reverse=True)
 
     return ans[0] if (ans) else -1
 
