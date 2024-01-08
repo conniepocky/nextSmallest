@@ -25,14 +25,10 @@ function nextSmaller(n) {
     
     var ans = generate(numArr, numArr.length, numArr.length).map(Number).sort((a, b) => b - a).filter(num => num < n)
 
-    console.log(ans)
-
     if (ans[0] == undefined || String(ans[0]).split("").length != String(n).length) {
          return -1
     }
 
     return ans[0]
-
 }
 
-console.log(nextSmaller(2071))
